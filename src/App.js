@@ -35,7 +35,7 @@ function App() {
 
   const fetchGeneratedText = async (newPrompt) => {
     try {
-      const response = await axios.get('http://localhost:5000/generate-text', {
+      const response = await axios.get('http://localhost:5000/', {
         params: { prompt: newPrompt },
       });
       const sanitizedText = sanitizeText(response.data.text);

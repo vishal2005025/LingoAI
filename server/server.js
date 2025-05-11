@@ -9,7 +9,7 @@ const Your_API_Key = 'AIzaSyBHsp4WW86SAEStuFsAtEtQKIL_fjbkoNM';
 
 app.use(cors());
 
-app.get('/generate-text', async (req, res) => {
+app.get('/', async (req, res) => {
     try {
         const genAI = new GoogleGenerativeAI(Your_API_Key);
         const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
