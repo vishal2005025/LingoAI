@@ -1,17 +1,18 @@
 const express = require('express');
+require('dotenv').config()
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const cors = require('cors');
 
 const app = express();
 const port = 5000;
 
-const Your_API_Key = 'AIzaSyBHsp4WW86SAEStuFsAtEtQKIL_fjbkoNM';
+
 
 app.use(cors());
 
 app.get('/', async (req, res) => {
     try {
-        const genAI = new GoogleGenerativeAI(Your_API_Key);
+        const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_KEY);
         const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
         const prompt = req.query.prompt || 'Write a story about a magic backpack.';
